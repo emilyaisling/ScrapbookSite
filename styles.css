@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    background-color: rgb(255, 249, 245);
+}
+
+nav{
+    position: fixed;
+    z-index: 2;
+}
+.sidebar{
+    padding-top: 70px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    font-size: large;
+    font-weight: 500;
+    border-left: 2px solid rgb(252, 122, 99);
+    border-right: 2px solid rgb(252, 122, 99);
+}
+.sidebar li{
+    padding-top: 25px;
+    padding-left: 80px;
+}
+
+.sidebar a:hover{
+    font-weight: bold;
+}
+
+
+.main{
+    padding-left: 250px;
+    padding-top: 65px;
+    position: absolute;
+}

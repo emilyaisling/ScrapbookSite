@@ -1,0 +1,10 @@
+html, body{
+    height: 100%;
+}
+.bg{
+    background-image: url(notepad.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    max-width: 100%;
+}
