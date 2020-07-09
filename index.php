@@ -27,8 +27,8 @@ if (!isset($_SESSION['loggedin']))
     <header>
         <nav class="nav-wrapper">
             <div class="container">
-                <a href="#" class="brand-logo">Scrapbook</a>
-                <a href="#" class="right valign-wrapper">Username<i class="large material-icons right">account_circle</i></a>
+                <a href="index.php" class="brand-logo">Scrapbook</a>
+                <a href="index.php" class="right valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right">account_circle</i><img src="" class="responsive-img circle"></a>
             </div>
         </nav>
     </header>
@@ -47,7 +47,50 @@ if (!isset($_SESSION['loggedin']))
 
     <div class="main">
         <div class="container">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum possimus vero rerum odit eius omnis culpa ullam quaerat et? Aut dolore error laborum repellendus perferendis facere hic ut repellat a?</p>
+        <h4 class="red-text text-lighten-1">Hello,<?php print htmlspecialchars($_SESSION['username']);?></h4>
+            <div class="row">
+                <div class="col s12 l4">
+                    <br>
+                    <br>
+                    <i class="material-icons red-text text-lighten-1">account_circle</i>
+                    <img src="" class="responsive-img">
+                    <br>
+                </div>
+                <div class="col s12 l6 offset-l2">
+                    <div class="bio">
+                        <br>
+                        <br>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, eos reiciendis. 
+                            Temporibus deleniti repellat ipsam culpa placeat earum doloribus quod, ut recusandae 
+                            vitae sequi? Repudiandae aliquam esse quo autem vel?</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <a href="#edit-form" class="btn red lighten-1 modal-trigger">Edit Profile</a>
+            <div class="modal" id="edit-form">
+                <div class="modal-content">
+                    <form action="editProfile.php" method="POST">
+                        <div class="input-field">
+                            <textarea id="bio" class="materialize-textarea" data-length="120"></textarea>
+                            <label for="bio">About you...</label>
+                        </div>
+                        <div class="file-field input-field">
+                            <div class="btn red lighten-1">
+                                <span>Change Photo</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="image">
+                            </div>
+                        </div>
+                        <div class="input-field right">
+                            <button type="submit" class="modal-close btn red lighten-1" name="submit">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -55,5 +98,17 @@ if (!isset($_SESSION['loggedin']))
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+            $('#bio').characterCounter();
+        });
+        let photo = $('.main img');
+        if ($('.main img').attr('src') != '')
+        {
+            $('.main i').css('display', 'none');
+            $('nav a i').css('display', 'none');
+        }
+    </script>
 </body>
 </html>

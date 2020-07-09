@@ -1,4 +1,4 @@
-html, body {
+html, body, input, textarea{
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -10,6 +10,15 @@ nav{
     position: fixed;
     z-index: 2;
 }
+nav a i{
+    font-size: 3rem;
+}
+nav a img{
+    padding-left: 10px;
+    max-width: 3rem;
+    max-height: 3rem;
+}
+
 .sidebar{
     padding-top: 70px;
     width: 250px;
@@ -35,4 +44,40 @@ nav{
     padding-left: 250px;
     padding-top: 65px;
     position: absolute;
+}
+.main h4{
+    width: fit-content;
+}
+.main i{
+    font-size: 200px;
+}
+.main .btn{
+    margin-top: 10px;
+}
+.main img{
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.input-field input{
+    color: rgb(252, 122, 99);
+}
+.input-field input:focus {
+    border-bottom: 1px solid rgb(252, 122, 99) !important;
+    color: rgb(252, 122, 99);
+}
+
+.modal-close{
+    font-family: 'Courier New', Courier, monospace;
+}
+.input-field #bio{
+    color: rgb(252, 122, 99);
+    font-family: 'Courier New', Courier, monospace;
+}
+.input-field #bio:focus{
+    border-bottom: 1px solid rgb(252, 122, 99) !important;
+    color: rgb(252, 122, 99);
+}
+#edit-form > div > form > div:nth-child(1) > label{
+    color: rgb(252, 122, 99);
 }
