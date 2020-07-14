@@ -4,7 +4,7 @@ html, body, button, input{
 }
 .bg{
     position: relative;
-    background-image: url(notepad.jpg);
+    background-image: url(img/notepad.jpg);
     background-size: cover;
     background-position: center center;
     height: 100%;

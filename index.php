@@ -28,7 +28,8 @@ if (!isset($_SESSION['loggedin']))
         <nav class="nav-wrapper">
             <div class="container">
                 <a href="index.php" class="brand-logo">Scrapbook</a>
-                <a href="index.php" class="right valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right">account_circle</i><img src="" class="responsive-img circle"></a>
+                <a href="index.php" class="right valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt right"></i>Logout</a>
             </div>
         </nav>
     </header>
@@ -53,7 +54,7 @@ if (!isset($_SESSION['loggedin']))
                     <br>
                     <br>
                     <i class="material-icons red-text text-lighten-1">account_circle</i>
-                    <img src="" class="responsive-img">
+                    <img src="<?php print $_SESSION['image'];?>" class="responsive-img" id="profileImg">
                     <br>
                 </div>
                 <div class="col s12 l6 offset-l2">
@@ -70,7 +71,7 @@ if (!isset($_SESSION['loggedin']))
             <a href="#edit-form" class="btn red lighten-1 modal-trigger">Edit Profile</a>
             <div class="modal" id="edit-form">
                 <div class="modal-content">
-                    <form action="editProfile.php" method="POST">
+                    <form action="editProfile.php" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                             <textarea id="bio" class="materialize-textarea" data-length="120"></textarea>
                             <label for="bio">About you...</label>
@@ -78,10 +79,10 @@ if (!isset($_SESSION['loggedin']))
                         <div class="file-field input-field">
                             <div class="btn red lighten-1">
                                 <span>Change Photo</span>
-                                <input type="file">
+                                <input type="file" name="photo">
                             </div>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" name="image">
+                                <input class="file-path validate" type="text">
                             </div>
                         </div>
                         <div class="input-field right">
@@ -102,13 +103,17 @@ if (!isset($_SESSION['loggedin']))
         $(document).ready(function(){
             $('.modal').modal();
             $('#bio').characterCounter();
+
         });
-        let photo = $('.main img');
-        if ($('.main img').attr('src') != '')
+        let photoSrc = $('.main img').attr('src');
+
+        if (photoSrc != '')
         {
             $('.main i').css('display', 'none');
             $('nav a i').css('display', 'none');
         }
+
+
     </script>
 </body>
 </html>
