@@ -10,10 +10,8 @@ nav{
     position: fixed;
     z-index: 2;
 }
-nav a i{
-    font-size: 3rem;
-}
-nav a img{
+
+nav a img, .sidebar a img{
     padding-left: 10px;
     max-width: 3rem;
     max-height: 3rem;
@@ -38,6 +36,9 @@ nav a img{
 .sidebar a:hover{
     font-weight: bold;
 }
+.toplink{
+    padding-bottom: 25px;
+}
 
 
 .main{
@@ -57,6 +58,10 @@ nav a img{
 .main img{
     max-width: 500px;
     max-height: 500px;
+}
+
+.bio{
+    padding-left: 70px;
 }
 
 .input-field input{

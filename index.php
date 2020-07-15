@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if (! isset($_SESSION['formSet']))
+{
+    $_SESSION['image'] = '';
+    $_SESSION['bio'] = 'About me...';
+}
+
 if (!isset($_SESSION['loggedin']))
 {
     header('Location: login.html');
@@ -28,14 +34,18 @@ if (!isset($_SESSION['loggedin']))
         <nav class="nav-wrapper">
             <div class="container">
                 <a href="index.php" class="brand-logo">Scrapbook</a>
-                <a href="index.php" class="right valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a>
-                <a href="logout.php"><i class="fas fa-sign-out-alt right"></i>Logout</a>
+                <ul class="right">
+                    <li class="hide-on-med-and-down"><a href="index.php" class="valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right navcon">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a></li>
+                    <li class="hide-on-med-and-down"><a href="logout.php">Log out <i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
             </div>
         </nav>
     </header>
 
     <div class="sidebar orange lighten-5">
         <ul>
+            <li class="hide-on-large-only"><a href="index.php" class="valign-wrapper brown-text text-lighten-1"><?php print htmlspecialchars($_SESSION['username']);?><i class="material-icons right navcon">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a></li>
+            <li class="hide-on-large-only toplink"><a href="logout.php" class="brown-text text-lighten-1">Log out <i class="fas fa-sign-out-alt"></i></a></li>
             <li><a href="#" class="red-text text-lighten-1">Photos</a></li>
             <li><a href="#" class="red-text text-lighten-1">Music</a></li>
             <li><a href="#" class="red-text text-lighten-1">Books</a></li>
@@ -61,9 +71,7 @@ if (!isset($_SESSION['loggedin']))
                     <div class="bio">
                         <br>
                         <br>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, eos reiciendis. 
-                            Temporibus deleniti repellat ipsam culpa placeat earum doloribus quod, ut recusandae 
-                            vitae sequi? Repudiandae aliquam esse quo autem vel?</p>
+                        <blockquote><? print $_SESSION['bio'];?></blockquote>
                     </div>
                 </div>
             </div>
@@ -73,7 +81,7 @@ if (!isset($_SESSION['loggedin']))
                 <div class="modal-content">
                     <form action="editProfile.php" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                            <textarea id="bio" class="materialize-textarea" data-length="120"></textarea>
+                            <textarea id="bio" class="materialize-textarea" data-length="120" name="bio"></textarea>
                             <label for="bio">About you...</label>
                         </div>
                         <div class="file-field input-field">
@@ -110,7 +118,7 @@ if (!isset($_SESSION['loggedin']))
         if (photoSrc != '')
         {
             $('.main i').css('display', 'none');
-            $('nav a i').css('display', 'none');
+            $('.navcon').css('display', 'none');
         }
 
 

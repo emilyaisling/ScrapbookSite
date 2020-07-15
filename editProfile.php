@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-$_SESSION['image'] = '';
 
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
@@ -21,6 +20,9 @@ catch (PDOexception $exception)
 
 if (isset($_POST['submit']))
 {
+    $_SESSION['formSet'] = TRUE;
+    $_SESSION['bio'] = $_POST['bio'];
+
     $folder = 'img/';
     $file = $folder . basename($_FILES['photo']['name']);
     $fileTmpName = $_FILES['photo']['tmp_name'];
@@ -37,6 +39,11 @@ if (isset($_POST['submit']))
             {
                 $_SESSION['image'] = $file;
                 move_uploaded_file($fileTmpName, $file);
+                header('Location: index.php');
+            }
+            else
+            {
+                $_SESSION['image'] = $file;
                 header('Location: index.php');
             }
         }
