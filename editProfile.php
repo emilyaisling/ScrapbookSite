@@ -17,11 +17,9 @@ catch (PDOexception $exception)
 }
 
 
-
 if (isset($_POST['submit']))
 {
     $_SESSION['formSet'] = TRUE;
-    $_SESSION['bio'] = $_POST['bio'];
 
     $folder = 'img/';
     $file = $folder . basename($_FILES['photo']['name']);
@@ -37,14 +35,25 @@ if (isset($_POST['submit']))
         {
             if (! file_exists($file))
             {
-                $_SESSION['image'] = $file;
                 move_uploaded_file($fileTmpName, $file);
-                header('Location: index.php');
             }
-            else
+            if ($stmt = $pdo->prepare("UPDATE users SET bio = ?, photo = ? WHERE id = ?"))
             {
-                $_SESSION['image'] = $file;
-                header('Location: index.php');
+                $stmt->execute(array($_POST['bio'], $file, $_SESSION['id']));
+
+                if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
+                {
+                    $stmt->execute(array($_SESSION['id']));
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($result)
+                    {
+                        $_SESSION['bio'] = $result['bio'];
+                        $_SESSION['image'] = $result['photo'];
+
+                        header('Location: index.php');
+                    }
+                }
             }
         }
     }
