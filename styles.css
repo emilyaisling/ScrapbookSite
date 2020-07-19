@@ -72,6 +72,10 @@ nav a img, .sidebar a img{
     color: rgb(252, 122, 99);
 }
 
+#edit-form{
+    padding-bottom: 800px;
+}
+
 .modal-close{
     font-family: 'Courier New', Courier, monospace;
 }
