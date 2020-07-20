@@ -1,4 +1,4 @@
-html, body, input, textarea{
+html, body, input, textarea, option{
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -39,6 +39,20 @@ nav a img, .sidebar a img{
 .toplink{
     padding-bottom: 25px;
 }
+@media only screen and (max-width: 600px) {
+    .sidebar {
+      width: 150px;
+    }
+    .sidebar ul{
+        position: absolute;
+        left: -30%;
+    }
+    .journal-form{
+        margin: 0px;
+        position: absolute;
+        left: -30%;
+    }
+  }
 
 
 .main{
@@ -89,4 +103,47 @@ nav a img, .sidebar a img{
 }
 #edit-form > div > form > div:nth-child(1) > label{
     color: rgb(252, 122, 99);
+}
+#edit-form > div > form > div.input-field.col.s12.selector > div > input{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.journal-form{
+    width: 300px;
+}
+.journal-form .btn{
+    font-family: 'Courier New', Courier, monospace;
+}
+.datepicker{
+    font-family: 'Courier New', Courier, monospace;
+}
+.datepicker-date-display {
+    background: rgb(252, 122, 99) !important;
+}
+.datepicker-calendar-container {
+    color: rgb(153, 150, 147) !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+.is-today {
+    color: rgb(252, 122, 99) !important;
+}
+.is-today.is-selected{
+    color: white !important;
+}
+.datepicker-table td.is-selected {
+    background: rgb(252, 122, 99) !important;
+}
+.datepicker-cancel, .datepicker-done {
+    color: rgb(252, 122, 99) !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+#select-options-4f9e28c8-3f83-6878-41e7-a875431f8fae > span{
+    color: rgb(252, 122, 99) !important;
+}
+#entry{
+    color: rgb(252, 122, 99);
+    font-family: 'Courier New', Courier, monospace;
+}
+.input-field #entry:focus{
+    border-bottom: 1px solid rgb(252, 122, 99) !important;
 }
