@@ -6,6 +6,9 @@ $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'scrapbook';
 
+$_SESSION['dates'] = array();
+$_SESSION['entries'] = array();
+
 try 
 {
     $pdo = new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
@@ -21,20 +24,18 @@ if (!isset($_SESSION['loggedin']))
     exit;
 }
 
-if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
+if ($stmt = $pdo->prepare('SELECT date, entry FROM journal WHERE user_id = ? ORDER BY submitted DESC'))
 {
     $stmt->execute(array($_SESSION['id']));
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($result)
+    if ($results)
     {
-        $_SESSION['bio'] = $result['bio'];
-        $_SESSION['image'] = $result['photo'];
-    }
-    else
-    {
-        $_SESSION['image'] = '';
-        $_SESSION['bio'] = 'About me...';
+        foreach ($results as $result)
+        {
+            array_push($_SESSION['dates'], $result['date']);
+            array_push($_SESSION['entries'], $result['entry']);
+        }
     }
 }
 ?>
@@ -82,8 +83,9 @@ if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
 
     <div class="main">
         <div class="container">
+
             <div class="card journal-form">
-                <form action="journal.php">
+                <form action="journalData.php" method="POST">
                     <div class="card-content">
                         <span class="card-title">
                             <div class="input-field">
@@ -101,18 +103,28 @@ if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
                     </div>
                 </form>
             </div>
+
+            <div class="row">
+            <?php for($i=0;$i<count($_SESSION['dates']);$i++) :?>
+            <div class="col s12 m12 l6">
+                <div class="card entry-card">
+                    <div class="card-content">
+                        <div class="card-title">
+                        <span><?php print $_SESSION['dates'][$i]?></span>
+                        </div>
+                        <div class="entry-text">
+                        <span><?php print $_SESSION['entries'][$i]?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endfor?>
+            </div>
+
         </div>
     </div>
 
-    <?php
-        if (isset($_POST['submit']))
-        {
-            if ($stmt = $pdo->prepare('INSERT INTO journal (user_id, date, entry) VALUES (?,?,?)'))
-            {
-                $stmt->execute($_SESSION['id'], $_POST['date'], $_POST['entry']);
-            }
-        }
-    ?>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->

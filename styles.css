@@ -52,6 +52,11 @@ nav a img, .sidebar a img{
         position: absolute;
         left: -30%;
     }
+    .entry-card{
+        margin: 0px;
+        position: absolute;
+        left: -36%;
+    }
   }
 
 
@@ -108,7 +113,7 @@ nav a img, .sidebar a img{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.journal-form{
+.journal-form, .entry-card{
     width: 300px;
 }
 .journal-form .btn{
