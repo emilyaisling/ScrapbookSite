@@ -109,7 +109,7 @@ else
                     </div>
                     <div class="card-action">
                         <div class="input-field center-align">
-                            <button type="submit" class="btn red lighten-1" name="submit">New Entry</button>
+                            <button type="submit" class="btn red lighten-1" name="submit">Add Entry</button>
                         </div>
                     </div>
                 </form>
