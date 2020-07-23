@@ -18,11 +18,11 @@ catch (PDOexception $exception)
 
 if (isset($_POST['submit']))
 {
-    if ($stmt = $pdo->prepare("INSERT INTO journal (user_id, date, entry, submitted) VALUES (?,?,?, NOW())"))
+    if ($stmt = $pdo->prepare("INSERT INTO books (user_id, title, author, description, submitted) VALUES (?,?,?,?,NOW())"))
     {
-        $stmt->execute(array($_SESSION['id'], $_POST['date'], $_POST['entry']));
+        $stmt->execute(array($_SESSION['id'], $_POST['title'], $_POST['author'], $_POST['description']));
 
-        if ($stmt = $pdo->prepare('SELECT date, entry FROM journal WHERE user_id = ? ORDER BY submitted DESC'))
+        if ($stmt = $pdo->prepare('SELECT title, author, description FROM books WHERE user_id = ? ORDER BY submitted DESC'))
         {
             $stmt->execute(array($_SESSION['id']));
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,13 +31,14 @@ if (isset($_POST['submit']))
             {
                 foreach ($results as $result)
                 {
-                    array_push($_SESSION['dates'], $result['date']);
-                    array_push($_SESSION['entries'], $result['entry']);
+                    array_push($_SESSION['titles'], $result['title']);
+                    array_push($_SESSION['authors'], $result['author']);
+                    array_push($_SESSION['descriptions'], $result['description']);
 
-                    header('Location: journal.php');
+                    header('Location: books.php');
                 }
             }
         }
     }
 }
-    ?>
+?>

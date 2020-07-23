@@ -84,13 +84,13 @@ nav a img, .sidebar a img{
 }
 
 .input-field input{
+    font-family: 'Courier New', Courier, monospace;
     color: rgb(252, 122, 99);
 }
-.input-field input:focus {
+.input-field input:focus{
     border-bottom: 1px solid rgb(252, 122, 99) !important;
     color: rgb(252, 122, 99);
 }
-
 #edit-form{
     padding-bottom: 800px;
 }
@@ -98,11 +98,11 @@ nav a img, .sidebar a img{
 .modal-close{
     font-family: 'Courier New', Courier, monospace;
 }
-.input-field #bio{
+.input-field #bio, .input-field #entry, .input-field #description{
     color: rgb(252, 122, 99);
     font-family: 'Courier New', Courier, monospace;
 }
-.input-field #bio:focus{
+.input-field #bio:focus, .input-field #entry:focus, .input-field #description:focus{
     border-bottom: 1px solid rgb(252, 122, 99) !important;
     color: rgb(252, 122, 99);
 }
@@ -151,4 +151,7 @@ nav a img, .sidebar a img{
 }
 .input-field #entry:focus{
     border-bottom: 1px solid rgb(252, 122, 99) !important;
+}
+body > div.main > div > div.card.journal-form > form > div.card-content > span > div > label, body > div.main > div > div.card.journal-form > form > div.card-content > div > label{
+    color: rgb(252, 122, 99);
 }

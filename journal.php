@@ -38,6 +38,15 @@ if ($stmt = $pdo->prepare('SELECT date, entry FROM journal WHERE user_id = ? ORD
         }
     }
 }
+
+if (!isset($_SESSION['dates'][2]))
+{
+    $lSize = 'l12';
+}
+else
+{
+    $lSize = 'l6';
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,11 +98,13 @@ if ($stmt = $pdo->prepare('SELECT date, entry FROM journal WHERE user_id = ? ORD
                     <div class="card-content">
                         <span class="card-title">
                             <div class="input-field">
-                                <input type="text" class="datepicker" name="date">
+                                <input type="text" class="datepicker" name="date" id="date">
+                                <label for="date">Date</label>
                             </div>
                         </span>
                         <div class="input-field">
                             <textarea id="entry" class="materialize-textarea" data-length="2000" name="entry"></textarea>
+                            <label for="entry">Entry</label>
                         </div>
                     </div>
                     <div class="card-action">
@@ -106,7 +117,7 @@ if ($stmt = $pdo->prepare('SELECT date, entry FROM journal WHERE user_id = ? ORD
 
             <div class="row">
             <?php for($i=0;$i<count($_SESSION['dates']);$i++) :?>
-            <div class="col s12 m12 l6">
+            <div class="col s12 m12 <?php print $lSize?>">
                 <div class="card entry-card">
                     <div class="card-content">
                         <div class="card-title">
