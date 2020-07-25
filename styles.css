@@ -83,11 +83,11 @@ nav a img, .sidebar a img{
     padding-left: 70px;
 }
 
-.input-field input{
+.input-field input, .input-field textarea{
     font-family: 'Courier New', Courier, monospace;
     color: rgb(252, 122, 99);
 }
-.input-field input:focus{
+.input-field input:focus, .input-field textarea:focus{
     border-bottom: 1px solid rgb(252, 122, 99) !important;
     color: rgb(252, 122, 99);
 }
@@ -99,8 +99,8 @@ nav a img, .sidebar a img{
     font-family: 'Courier New', Courier, monospace;
 }
 .input-field #bio, .input-field #entry, .input-field #description{
-    color: rgb(252, 122, 99);
-    font-family: 'Courier New', Courier, monospace;
+    color: rgb(252, 122, 99) !important;
+    font-family: 'Courier New', Courier, monospace !important;
 }
 .input-field #bio:focus, .input-field #entry:focus, .input-field #description:focus{
     border-bottom: 1px solid rgb(252, 122, 99) !important;
@@ -112,7 +112,6 @@ nav a img, .sidebar a img{
 #edit-form > div > form > div.input-field.col.s12.selector > div > input{
     font-family: 'Courier New', Courier, monospace;
 }
-
 .journal-form, .entry-card{
     width: 300px;
 }
@@ -154,4 +153,8 @@ nav a img, .sidebar a img{
 }
 body > div.main > div > div.card.journal-form > form > div.card-content > span > div > label, body > div.main > div > div.card.journal-form > form > div.card-content > div > label{
     color: rgb(252, 122, 99);
+}
+
+#smallcomma{
+    font-size: small;
 }
