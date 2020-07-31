@@ -1,3 +1,5 @@
+/* base styles */
+
 html, body, input, textarea, option{
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
@@ -10,13 +12,13 @@ nav{
     position: fixed;
     z-index: 2;
 }
-
 nav a img, .sidebar a img{
     padding-left: 10px;
     max-width: 3rem;
     max-height: 3rem;
 }
 
+/* sidebar styles */
 .sidebar{
     padding-top: 70px;
     width: 250px;
@@ -32,34 +34,14 @@ nav a img, .sidebar a img{
     padding-top: 25px;
     padding-left: 80px;
 }
-
 .sidebar a:hover{
     font-weight: bold;
 }
 .toplink{
     padding-bottom: 25px;
 }
-@media only screen and (max-width: 600px) {
-    .sidebar {
-      width: 150px;
-    }
-    .sidebar ul{
-        position: absolute;
-        left: -30%;
-    }
-    .journal-form{
-        margin: 0px;
-        position: absolute;
-        left: -30%;
-    }
-    .entry-card{
-        margin: 0px;
-        position: absolute;
-        left: -36%;
-    }
-  }
 
-
+/* main page and profile section */
 .main{
     padding-left: 250px;
     padding-top: 65px;
@@ -78,11 +60,11 @@ nav a img, .sidebar a img{
     max-width: 500px;
     max-height: 500px;
 }
-
 .bio{
     padding-left: 70px;
 }
 
+/* form styles */
 .input-field input, .input-field textarea{
     font-family: 'Courier New', Courier, monospace;
     color: rgb(252, 122, 99);
@@ -94,7 +76,6 @@ nav a img, .sidebar a img{
 #edit-form{
     padding-bottom: 800px;
 }
-
 .modal-close{
     font-family: 'Courier New', Courier, monospace;
 }
@@ -118,6 +99,24 @@ nav a img, .sidebar a img{
 .journal-form .btn{
     font-family: 'Courier New', Courier, monospace;
 }
+#select-options-4f9e28c8-3f83-6878-41e7-a875431f8fae > span{
+    color: rgb(252, 122, 99) !important;
+}
+#entry{
+    color: rgb(252, 122, 99);
+    font-family: 'Courier New', Courier, monospace;
+}
+.input-field #entry:focus{
+    border-bottom: 1px solid rgb(252, 122, 99) !important;
+}
+body > div.main > div > div.card.journal-form > form > div.card-content > span > div > label, body > div.main > div > div.card.journal-form > form > div.card-content > div > label{
+    color: rgb(252, 122, 99);
+}
+#smallcomma{
+    font-size: small;
+}
+
+/* edited materialize datepicker styles */
 .datepicker{
     font-family: 'Courier New', Courier, monospace;
 }
@@ -141,20 +140,24 @@ nav a img, .sidebar a img{
     color: rgb(252, 122, 99) !important;
     font-family: 'Courier New', Courier, monospace !important;
 }
-#select-options-4f9e28c8-3f83-6878-41e7-a875431f8fae > span{
-    color: rgb(252, 122, 99) !important;
-}
-#entry{
-    color: rgb(252, 122, 99);
-    font-family: 'Courier New', Courier, monospace;
-}
-.input-field #entry:focus{
-    border-bottom: 1px solid rgb(252, 122, 99) !important;
-}
-body > div.main > div > div.card.journal-form > form > div.card-content > span > div > label, body > div.main > div > div.card.journal-form > form > div.card-content > div > label{
-    color: rgb(252, 122, 99);
-}
 
-#smallcomma{
-    font-size: small;
+/* responsive resizing */
+@media only screen and (max-width: 600px) {
+    .sidebar {
+      width: 150px;
+    }
+    .sidebar ul{
+        position: absolute;
+        left: -30%;
+    }
+    .journal-form{
+        margin: 0px;
+        position: absolute;
+        left: -30%;
+    }
+    .entry-card{
+        margin: 0px;
+        position: absolute;
+        left: -36%;
+    }
 }
