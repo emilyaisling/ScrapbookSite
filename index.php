@@ -71,7 +71,6 @@ if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
         <ul>
             <li class="hide-on-large-only"><a href="index.php" class="valign-wrapper brown-text text-lighten-1"><?php print htmlspecialchars($_SESSION['username']);?><i class="material-icons right navcon">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a></li>
             <li class="hide-on-large-only toplink"><a href="logout.php" class="brown-text text-lighten-1">Log out <i class="fas fa-sign-out-alt"></i></a></li>
-            <li><a href="photos.php" class="red-text text-lighten-1">Photos</a></li>
             <li><a href="music.php" class="red-text text-lighten-1">Music</a></li>
             <li><a href="books.php" class="red-text text-lighten-1">Books</a></li>
             <li><a href="tv.php" class="red-text text-lighten-1">TV</a></li>
