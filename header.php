@@ -10,13 +10,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Scrapbook</title>
+    <title>StickyNote Scrapbook</title>
 </head>
 <body>   
     <header>
         <nav class="nav-wrapper">
             <div class="container">
-                <a href="index.php" class="brand-logo">Scrapbook</a>
+                <a href="index.php" class="brand-logo">StickyNote Scrapbook</a>
                 <ul class="right">
                     <li class="hide-on-med-and-down"><a href="index.php" class="valign-wrapper"><?php print htmlspecialchars($_SESSION['username']);?><i class="large material-icons right navcon">account_circle</i><img src="<?php print $_SESSION['image'];?>" class="responsive-img circle"></a></li>
                     <li class="hide-on-med-and-down"><a href="logout.php">Log out <i class="fas fa-sign-out-alt"></i></a></li>
