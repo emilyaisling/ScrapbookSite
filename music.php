@@ -68,6 +68,27 @@ else
             </div>
 
             <div class="row">
+                <div class="col s2 l2">
+                    <a class="btn-floating white" id="white"></a>
+                </div>
+                <div class="col s2 l2">
+                    <a class="btn-floating teal lighten-4" id="teal"></a>
+                </div>
+                <div class="col s2 l2">
+                    <a class="btn-floating red lighten-1" id="red"></a>
+                </div>
+                <div class="col s2 l2">
+                    <a class="btn-floating deep-purple lighten-3" id="purple"></a>
+                </div>
+                <div class="col s2 l2">
+                    <a class="btn-floating light-green lighten-3" id="green"></a>
+                </div>
+                <div class="col s2 l2">
+                    <a class="btn-floating yellow lighten-3" id="yellow"></a>
+                </div>
+            </div>
+
+            <div class="row">
                 <?php for($i=0;$i<count($_SESSION['song-titles']);$i++) :?>
                     <div class="col s12 m12 <?php print $lSize?>">
                         <div class="card entry-card">
@@ -94,7 +115,27 @@ else
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>    
+    <script>
+        $(document).ready(function(){
+            $('#white').click(function(){
+                $('.entry-card').css("background-color", '#ffffff')
+            });
+            $('#teal').click(function(){
+                $('.entry-card').css("background-color", '#b2dfdb')
+            });
+            $('#red').click(function(){
+                $('.entry-card').css("background-color", '#ef5350')
+            });
+            $('#purple').click(function(){
+                $('.entry-card').css("background-color", '#b39ddb')
+            });
+            $('#green').click(function(){
+                $('.entry-card').css("background-color", '#c5e1a5')
+            });
+            $('#yellow').click(function(){
+                $('.entry-card').css("background-color", '#fff59d')
+            });
+        });    
         let photoSrc = $('.main img').attr('src');
 
         if (photoSrc != '')

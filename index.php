@@ -51,7 +51,7 @@ if ($stmt = $pdo->prepare("SELECT bio, photo FROM users WHERE id = ?"))
                 <div class="modal-content row">
                     <form action="editProfile.php" method="POST" enctype="multipart/form-data">
                         <div class="input-field col s12">
-                            <textarea id="bio" class="materialize-textarea" data-length="120" name="bio"></textarea>
+                            <textarea id="bio" class="materialize-textarea" data-length="250" name="bio"></textarea>
                             <label for="bio">About you...</label>
                         </div>
                         <div class="input-field col s12 selector">
