@@ -2,10 +2,10 @@
 session_start();
 date_default_timezone_set('GMT');
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'scrapbook';
+$DATABASE_HOST = 'un0jueuv2mam78uv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+$DATABASE_USER = 'otxdpkpzouo802ap';
+$DATABASE_PASS = 'gbdu59597dg8mjvk';
+$DATABASE_NAME = 'ktck9dx8kcq949u8';
 
 try 
 {
